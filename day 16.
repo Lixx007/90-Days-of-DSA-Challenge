@@ -1,0 +1,22 @@
+2011. Final Value of Variable After Performing Operations
+
+Topic - String
+
+-Code Implementation.
+
+-----------------------------------------------------------------------
+  
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int x = 0;   
+        for (auto& op : operations) {  
+            if (op[1] == '+') {
+                x = x + 1;  
+            } else {
+                x = x - 1; 
+            }
+        }    
+        return x;
+    }
+};
