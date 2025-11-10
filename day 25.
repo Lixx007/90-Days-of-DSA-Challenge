@@ -1,0 +1,19 @@
+80. Remove Duplicates from Sorted Array II
+
+Topic - Array
+
+-Code Implementation.
+
+-----------------------------------------------------------------------
+class Solution {
+public:
+    int removeDuplicates(std::vector<int>& nums) {
+        int j = 1;
+        for (int i = 1; i < nums.size(); i++) {
+            if (j == 1 || nums[i] != nums[j - 2]) {
+                nums[j++] = nums[i];
+            }
+        }
+        return j;
+    }
+};
