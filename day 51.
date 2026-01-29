@@ -1,0 +1,24 @@
+383. Ransom Note
+
+Topic - Hash Table, String, Counting
+
+Code Implementation.
+
+-----------------------------------------------------------------------
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char, int> charFreq;
+        for(char ch: magazine){
+            charFreq[ch]++;
+        }
+        for(char ch: ransomNote){
+            if(charFreq[ch] > 0){
+                charFreq[ch]--;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+};
