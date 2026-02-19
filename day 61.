@@ -1,0 +1,28 @@
+128. Longest Consecutive Sequence
+
+Topic - Array, Hash Table, Union-Find
+
+Code Implementation.
+-----------------------------------------------------------------------
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 0) return 0;
+
+        sort(nums.begin(), nums.end());
+        int currLen = 1, globalLen = 1;
+        for(int i = 1; i < n; i++){
+            if(nums[i] == nums[i - 1]){
+                continue;
+            }else if(nums[i] - 1 == nums[i - 1]){
+                currLen++;
+            }else{
+                globalLen = max(globalLen, currLen);
+                currLen = 1;
+            }
+        }
+        globalLen = max(globalLen, currLen);
+        return globalLen;
+    }
+};
