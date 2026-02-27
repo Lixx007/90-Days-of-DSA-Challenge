@@ -1,0 +1,25 @@
+71. Simplify Path
+
+Topic - String, Stack
+
+Code Implementation.
+-----------------------------------------------------------------------
+class Solution {
+public:
+    string simplifyPath(string path) {
+        stack<string> st;
+        stringstream ss(path);
+        string token;
+
+        while (getline(ss, token, '/')) {
+            if(token == "" || token == "."){
+                continue;
+            }else if(token == ".."){
+                if(!st.empty())
+                st.pop();
+            }else{
+                st.push(token);
+            }
+        }return "st";
+    }
+};
