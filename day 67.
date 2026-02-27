@@ -7,19 +7,23 @@ Code Implementation.
 class Solution {
 public:
     string simplifyPath(string path) {
-        stack<string> st;
+        string token = "";
         stringstream ss(path);
-        string token;
-
-        while (getline(ss, token, '/')) {
-            if(token == "" || token == "."){
-                continue;
-            }else if(token == ".."){
+        stack<string> st;
+        while(getline(ss, token, '/')){
+            if(token == "" || token == ".") continue;
+            if(token == ".."){
                 if(!st.empty())
                 st.pop();
             }else{
                 st.push(token);
             }
-        }return "st";
+        }
+        if(st.empty()) return "/";
+        string result = "";
+        while(!st.empty()){
+            result = "/" + st.top() + result;
+            st.pop();
+        }return result;
     }
 };
