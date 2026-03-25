@@ -1,0 +1,21 @@
+104. Maximum Depth of Binary Tree
+
+Topic - Tree, Depth-First Search, Breadth-First Search, Binary Tree
+
+Code Implementation.
+
+//Approach (Rotate and check till 4 rotations)
+//T.C : O(n^2)
+//S.C : O(1)  
+-----------------------------------------------------------------------
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(root == NULL){
+            return 0;
+        }
+        int d1 = maxDepth(root -> left);
+        int d2 = maxDepth(root -> right);
+        return max(d1, d2)+1;
+    }
+};
